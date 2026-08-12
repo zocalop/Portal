@@ -15,7 +15,7 @@ function Portal() {
     };
   }, []);
 
-  const scale = Math.max(0.1, 1 - scroll / 5000);
+  const scale = Math.min(1, 0.01 + scroll / 5000);
 
   return (
     <div className="Portal">

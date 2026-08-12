@@ -1,5 +1,6 @@
 
 .Portal {
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   min-height: 5000px;
 }
 
@@ -10,7 +11,10 @@
 
   transform-origin: center center;
 
+
+  font-family: Garamond, serif;
   font-size: 4rem;
+  line-height: 1.2;
   white-space: nowrap;
   text-decoration: none;
   color: black;
