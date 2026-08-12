@@ -1,6 +1,7 @@
 import React from 'react';
 import Portal from './Components/Portal.jsx';
 import Derive from './Components/Derive.jsx';
+import SeydaNeen from './Components/SeydaNeen.jsx';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
@@ -12,6 +13,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Portal />} />
           <Route path="/derive" element={<Derive />} />
+          <Route path="/seydaneen" element={<SeydaNeen />} />
+          <Route path="/gamblersden" element={<GamblersDen />} />
+          <Route path="/trader" element={<Trader />} />
+          <Route path="/bookhouse" element={<Bookhouse />} />
+          <Route path="/inn" element={<Inn />} />
+          <Route path="/theroadout" element={<TheRoadOut />} />
         </Routes>
       </BrowserRouter>
     </div>

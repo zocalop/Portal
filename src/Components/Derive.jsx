@@ -20,7 +20,7 @@ function Derive() {
   return (
     <div className="Portal">
       <a
-        href="/"
+        href="/seydaneen"
         className="portal-text"
         style={{
           transform: `translate(-50%, -50%) scale(${scale})`,
