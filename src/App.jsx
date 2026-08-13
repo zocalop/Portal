@@ -7,7 +7,8 @@ import Trader from './Components/Trader.jsx';
 import Bookhouse from './Components/Bookhouse.jsx';
 import Inn from './Components/Inn.jsx';
 import TheRoadOut from './Components/TheRoadOut.jsx';
-import './App.css';
+import SeydaNeenLeave from './Components/SeydaNeenLeave.jsx';
+import './Components/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/bookhouse" element={<Bookhouse />} />
           <Route path="/inn" element={<Inn />} />
           <Route path="/theroadout" element={<TheRoadOut />} />
+          <Route path="/seydaneenleave" element={<SeydaNeenLeave />} />
         </Routes>
       </BrowserRouter>
     </div>

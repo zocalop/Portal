@@ -6,10 +6,10 @@ function GamblersDen() {
   return (
     <div className="GamblersDen">
       <a
-        href="/seydaneen"
+        href="/seydaneenleave"
         className="gamblersden-exit"
       >
-        Seyda Neen
+        Leave the Gambler's Den
       </a>
     </div>
   );
