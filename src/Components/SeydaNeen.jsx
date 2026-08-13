@@ -44,6 +44,12 @@ function SeydaNeen() {
           The Road Out
         </a>
       </div>
+      <div className="seydaneen-text2"
+      >
+        The sparse and scattered huts that dotted the periphery of Seyda Neen<br />
+        hinted at the pull of some dark thing, or the fear of it,<br /> 
+        that would anchor a soul to this forgotten place.
+      </div>
     </div>
   );
 }
