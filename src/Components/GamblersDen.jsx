@@ -7,7 +7,7 @@ function GamblersDen() {
     <div className="GamblersDen">
       <a
         href="/seydaneenleave"
-        className="gamblersden-exit"
+        className="exit"
       >
         Leave the Gambler's Den
       </a>
