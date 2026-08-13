@@ -2,6 +2,11 @@ import React from 'react';
 import Portal from './Components/Portal.jsx';
 import Derive from './Components/Derive.jsx';
 import SeydaNeen from './Components/SeydaNeen.jsx';
+import GamblersDen from './Components/GamblersDen.jsx';
+import Trader from './Components/Trader.jsx';
+import Bookhouse from './Components/Bookhouse.jsx';
+import Inn from './Components/Inn.jsx';
+import TheRoadOut from './Components/TheRoadOut.jsx';
 import './App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
