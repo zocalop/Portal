@@ -1,5 +1,5 @@
 
-import React from 'react';
+import TraderProductList from './TraderProductList.jsx';
 
 function Trader() {
 
@@ -8,6 +8,11 @@ function Trader() {
       <div className="seydaneen-text">
         Welcome, stranger.  Have a look around.<br />
         Let me know if there's anything special that you're looking for.
+      </div>
+      <div>
+        <button>
+          See the trader's wares
+        </button>
       </div>
       <a
         href="/seydaneenleave"
