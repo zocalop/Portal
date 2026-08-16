@@ -1,0 +1,30 @@
+
+/// Assume router unless otherwise specified ///
+
+Portal
+  |
+css effected Derive (combined page named Derive)
+  |
+Seyda Neen
+
+  Gambler's Den
+
+  Inn
+
+  Trader
+        |
+      Trader Product List
+        |
+      css effect to/from Cart
+        |
+      Trader Product List
+        |
+      css effected Trader
+        |
+    css effected Seyda Neen
+
+  Bookhouse
+
+  The Road Out
+
+  Investigate Houses
