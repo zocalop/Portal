@@ -8,7 +8,7 @@ import Bookhouse from './Components/Bookhouse.jsx';
 import Inn from './Components/Inn.jsx';
 import TheRoadOut from './Components/TheRoadOut.jsx';
 import SeydaNeenLeave from './Components/SeydaNeenLeave.jsx';
-import './Components/App.css';
+import './Components/css/App.css';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
