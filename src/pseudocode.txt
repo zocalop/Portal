@@ -1,14 +1,14 @@
 
 /// Assume router unless otherwise specified ///
 
-Portal
-  |
-css effected Derive (combined page named Derive)
-  |
-Seyda Neen
-
-  Gambler's Den
-
+Portal                                                       Derivé Server
+  |                                                                |
+css effected Derivé (combined page named Derivé)                   |
+  |                                                                |
+Seyda Neen ---------- Everpresent css effect to/from Loot/Stranger Inventory (CartItem+)
+                                                    
+  Gambler's Den                                     
+                                                 
   Inn
 
   Trader
@@ -28,3 +28,5 @@ Seyda Neen
   The Road Out
 
   Investigate Houses
+
+

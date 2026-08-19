@@ -1,5 +1,5 @@
 
-.Trader {
+.StrangerInventory {
   background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   height: 1250px;
 }
@@ -83,15 +83,3 @@
   width: 100%;
   text-align: center;
 }
-
-.cart-item {
-  position: fixed;
-  inset: 0;
-  transform: translateY(100%);
-  transition: top 0.5s ease;
-}
-
-.cart-item.visible {
-  transform: translateY(0);
-}
-  

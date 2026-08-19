@@ -5,13 +5,12 @@ import { addItem } from '../Cart/CartSlice.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-function TraderProductList() {
+function StrangerInventory() {
   const [showCart, setShowCart] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
-  const [selectedCategory, setSelectedCategory] = useState("All");
-  const [searchTerm, setSearchTerm] = useState("");
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch(); 
+
   const itemArray = [
     {
       Category: "Miscellanea",
@@ -50,13 +49,6 @@ function TraderProductList() {
   ]
 
   return (
-
-/*  <div>
-      <div className="navbar">
-        <div className="tag">
-          <div className="luxury">*/
-            
-
     <div className="Trader">
       <div className="product-grid">
         <div className="product-list">
@@ -93,20 +85,9 @@ function TraderProductList() {
       >
         Close trader inventory
       </Link>
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
-        <button onClick={() => setShowCart(true)}>
-          Review Purchase
-        </button>
-        <div className={`cart-item ${showCart ? 'visible' : ''}`}>
-          <CartItem />
-        </div>
-      </div>
+   {/*<CartItem />*/}
     </div>
   );
 }
 
-export default TraderProductList;
+export default StrangerInventory;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice.jsx';
 
 const CartItem = ({ onContinueShopping }) => {
-  const cart = useSelector(state = state.cart.items); 
+  const cart = useSelector(state => state.cart.items); 
   const dispatch = useDispatch();
   
   const calculateTotalAmount = (cart) => {
@@ -36,7 +36,7 @@ const CartItem = ({ onContinueShopping }) => {
 
   return (
     <div className="cart-container">
-      <h2>Total Cart Amount:  ${calculateTotalAmount}</h2>
+      <h2>Total Cart Amount:  {calculateTotalAmount(cart)}</h2>
       <div>
         {cart.map(item => (
           <div className="cart-item" key={item.name}>

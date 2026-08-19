@@ -14,6 +14,7 @@ import SeydaNeenLeave from './Components/SeydaNeenLeave.jsx';
 
 import './Components/css/App.css';
 import './Components/css/Trader.css';
+import './Components/css/StrangerInventory.css';
 
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
