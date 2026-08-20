@@ -1,8 +1,9 @@
 
+
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice.jsx';
 
-const CartItem = ({ onContinueShopping }) => {
+const StrangerInventory = ({ onCloseStrangerInventory }) => {
   const cart = useSelector(state => state.cart.items); 
   const dispatch = useDispatch();
   
@@ -66,5 +67,4 @@ const CartItem = ({ onContinueShopping }) => {
   );
 }
 
-export default CartItem;
-
+export default StrangerInventory;

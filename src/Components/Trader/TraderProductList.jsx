@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useState, useEffect } from 'react';
 import CartItem from '../Cart/CartItem.jsx';
@@ -49,13 +50,13 @@ function TraderProductList() {
     }
   ]
 
-  return (
+/* Use when something must occur before execution of the function? */
+  const handleContinueShopping = (e) => {
+    e.preventDefault();
+    setShowCart(false);
+  };
 
-/*  <div>
-      <div className="navbar">
-        <div className="tag">
-          <div className="luxury">*/
-            
+  return (
 
     <div className="Trader">
       <div className="product-grid">
@@ -101,8 +102,8 @@ function TraderProductList() {
         <button onClick={() => setShowCart(true)}>
           Review Purchase
         </button>
-        <div className={`cart-item ${showCart ? 'visible' : ''}`}>
-          <CartItem />
+        <div className={`trader-cart-item ${showCart ? 'visible' : ''}`}>
+          <CartItem onContinueShopping={handleContinueShopping} />
         </div>
       </div>
     </div>

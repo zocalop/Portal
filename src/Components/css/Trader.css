@@ -2,6 +2,7 @@
 .Trader {
   background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   height: 1250px;
+  width: 100vw;
 }
 
 /*Same as see-wares*/
@@ -18,7 +19,7 @@
   text-decoration: none;
   color: black;
 
-  z-index: 1000;
+  z-index: 1;
 
   display: inline-block;
   border: 3px double #6b583d;
@@ -84,14 +85,21 @@
   text-align: center;
 }
 
-.cart-item {
+.trader-cart-item {
   position: fixed;
   inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   transform: translateY(100%);
-  transition: top 0.5s ease;
+  transition: transform 0.5s ease;
+  overflow-y: auto;
+  width: 50%;
+  border: 5px solid black;
+  border-radius: 10px;
+  z-index: 1000;
 }
 
-.cart-item.visible {
+.trader-cart-item.visible {
   transform: translateY(0);
 }
   
+
