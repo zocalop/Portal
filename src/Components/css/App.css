@@ -287,7 +287,7 @@ body,
   text-decoration: none;
   color: black;
 
-  z-index: 1000;
+  z-index: 1;
 }
 
 .seydaneenleave-text2 {
@@ -303,7 +303,7 @@ body,
   text-decoration: none;
   color: black;
 
-  z-index: 1000;
+  z-index: 1;
 }
 
 /* Portal.jsx and Derive.jsx*/

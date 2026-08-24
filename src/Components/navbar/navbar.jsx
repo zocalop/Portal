@@ -5,6 +5,7 @@ import StrangerInventory from './StrangerInventory.jsx';
 import { useLocation } from 'react-router-dom';
 import { TraderNavbar } from '../Trader/TraderProductList.jsx';
 import { Link } from 'react-router-dom';
+import { TraderWares } from '../Trader/Trader.jsx';
 
 function ReturnToButton() {
   const location = useLocation();
@@ -23,7 +24,7 @@ function ReturnToButton() {
 
   return (
     <>
-      <Link className="return-to-button"
+      <Link className="stranger-inventory-button"
         to="/seydaneenleave"
       >
         {returnTo}
@@ -96,6 +97,7 @@ function Navbar() {
         onCloseStrangerInventory={handleCloseStrangerInventory}
       />
       <ReturnToButton />
+      <TraderWares />
       <TraderNavbar />
     </div>
   );

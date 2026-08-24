@@ -20,47 +20,6 @@
 }
 
 /*Text-made-navegation, with stars*/
-.exit {
-  position: absolute;
-  top: var(--exit-top);
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-family: Garamond, serif;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  color: black;
-
-  z-index: 1;
-
-  display: inline-block;
-  border: 3px double #6b583d;
-  padding: 12px 30px;
-}
-.exit::before {
-  content: "✦";
-  position: absolute;
-
-  top: var(--star-top);
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 0 8px;
-}
-.exit::after {
-  content: "✦";
-  position: absolute;
-
-  top: var(--star-bottom);
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 0 8px;
-}
-
-/*Text-made-navegation, with stars*/
 .exit-trader-inventory {
   position: relative;
 /*top: var(--exit-top);
@@ -96,7 +55,8 @@
 
   transition: color 0.8s ease;
 
-  top: var(--star-top);
+/*top: var(--star-top);*/
+  top: -16px;
   left: 50%;
   transform: translateX(-50%);
 
@@ -108,7 +68,8 @@
 
   transition: color 0.8s ease;
 
-  top: var(--star-bottom);
+/*top: var(--star-bottom);*/
+  top: +41px;
   left: 50%;
   transform: translateX(-50%);
 

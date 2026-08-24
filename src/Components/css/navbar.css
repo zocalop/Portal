@@ -9,8 +9,7 @@
   box-sizing: border-box;
   bottom: 10px;
   width: 100%;
-  z-index: 1;
-  box-sizing: border-box;
+  z-index: 1000;
 }
 
 .stranger-inventory-button {
@@ -42,7 +41,9 @@
   transform: translateX(-50%);
   padding: 0 8px;
   
-  pointer-events: none;
+  transition: color 0.8s ease;
+
+/*pointer-events: none;*/
 }
 
 .stranger-inventory-button::after {
@@ -54,11 +55,21 @@
   transform: translateX(-50%);
   padding: 0 8px;
 
-  pointer-events: none;
+  transition: color 0.8s ease;
+
+/*pointer-events: none;*/
 }
 
 .stranger-inventory-button:hover {
   background-color: #c9a227;
+}
+
+.stranger-inventory-button:hover::before {
+  color: #4B0082;
+}
+
+.stranger-inventory-button:hover::after {
+  color: #4B0082;
 }
 
 .stranger-inventory-item {
@@ -82,47 +93,4 @@
 .stranger-inventory-item.visible {
   transform: translateY(0);
   pointer-events: auto;
-}
-
-.return-to-button {
-  position: relative;  /* Was fixed when alone at top of page */
-/*top: 10px;  
-  left: 50%;
-  transform: translateX(-50%);*/
-
-  font-family: Garamond, serif;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  color: black;
-  background-color: transparent;
-  z-index: 1;
-
-  display: inline-block;
-  border: 3px double #6b583d;
-  padding: 12px 30px;
-}
-.return-to-button::before {
-  content: "✦";
-  position: absolute;
-
-  top: -16px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 8px;
-  
-  pointer-events: none;
-}
-
-.return-to-button::after {
-  content: "✦";
-  position: absolute;
-
-  top: +41px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 0 8px;
-
-  pointer-events: none;
 }
