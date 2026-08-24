@@ -5,9 +5,57 @@ import CartItem from '../Cart/CartItem.jsx';
 import { addItem } from '../Cart/CartSlice.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+
+export function TraderNavbar() {
+  const [showCart, setShowCart] = useState(false);
+
+  /* Use when something must occur before execution of the function? */
+  const handleContinueShopping = (e) => {
+    e.preventDefault();
+    setShowCart(false);
+  };
+
+  const location = useLocation();
+  if (location.pathname !== '/traderproductlist') {
+    return null;
+  }
+
+  return (
+    <div className="trader-navbar">
+      <Link
+        to="/trader"
+        className="exit-trader-inventory"
+        style={{
+/*        '--exit-top': '500px',          No top, container is hierarchically renders at bottom*/
+          '--star-top': '-16px',
+          '--star-bottom': '+41px'
+        }}
+      >
+        Close trader inventory
+      </Link>
+      <div>
+        <p 
+          className = "exit-trader-inventory"
+          onClick={() => setShowCart(true)}
+          role = "button"
+          style={{ 
+            'cursor':'pointer',
+            '--star-top':'-16px',
+            '--star-bottom':'+41px'  
+          }}
+        >
+          Review Purchase
+        </p>
+        <div className={`trader-cart-item ${showCart ? 'visible' : ''}`}>
+          <CartItem onContinueShopping={handleContinueShopping} />
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function TraderProductList() {
-  const [showCart, setShowCart] = useState(false);
   const [addedToCart, setAddedToCart] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
@@ -50,15 +98,10 @@ function TraderProductList() {
     }
   ]
 
-/* Use when something must occur before execution of the function? */
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    setShowCart(false);
-  };
-
   return (
 
     <div className="Trader">
+      <br />
       <div className="product-grid">
         <div className="product-list">
           {itemArray.map(category => (
@@ -83,29 +126,7 @@ function TraderProductList() {
         </div>
       </div>
       <br />
-      <Link
-        to="/trader"
-        className="exit"
-        style={{
-/*        '--exit-top': '500px',*/
-          '--star-top': '-16px',
-          '--star-bottom': '+41px'
-        }}
-      >
-        Close trader inventory
-      </Link>
-      <br />
-      <br />
-      <br />
-      <br />
-      <div>
-        <button onClick={() => setShowCart(true)}>
-          Review Purchase
-        </button>
-        <div className={`trader-cart-item ${showCart ? 'visible' : ''}`}>
-          <CartItem onContinueShopping={handleContinueShopping} />
-        </div>
-      </div>
+   {/*<TraderNavbar />*/}
     </div>
   );
 }

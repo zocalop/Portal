@@ -1,11 +1,25 @@
 
+
 .Trader {
   background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
   height: 1250px;
-  width: 100vw;
+  width: 100%;
 }
 
-/*Same as see-wares*/
+.trader-navbar {
+/*position: fixed;*/
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+/*box-sizing: border-box;
+  bottom: 10px;
+  width: 100%;
+  z-index: 1;*/
+}
+
+/*Text-made-navegation, with stars*/
 .exit {
   position: absolute;
   top: var(--exit-top);
@@ -44,6 +58,72 @@
   transform: translateX(-50%);
 
   padding: 0 8px;
+}
+
+/*Text-made-navegation, with stars*/
+.exit-trader-inventory {
+  position: relative;
+/*top: var(--exit-top);
+  left: 50%;
+  transform: translateX(-50%);*/
+
+  font-family: Garamond, serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+  transition: background-color 0.8s ease;
+  z-index: 1;
+
+/*clip-path: polygon(
+    8px 0,
+    calc(100% - 8px) 0,
+    100% 8px,
+    100% calc(100% - 8px),
+    calc(100% - 8px) 100%,
+    8px 100%,
+    0 calc(100% - 8px),
+    0 8px
+  );*/
+  display: inline-block;
+  border: 3px double #6b583d;
+  padding: 12px 30px;
+}
+.exit-trader-inventory::before {
+  content: "✦";
+  position: absolute;
+
+  transition: color 0.8s ease;
+
+  top: var(--star-top);
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0 8px;
+}
+.exit-trader-inventory::after {
+  content: "✦";
+  position: absolute;
+
+  transition: color 0.8s ease;
+
+  top: var(--star-bottom);
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0 8px;
+}
+.exit-trader-inventory:hover {
+  background-color: #c9a227;
+}
+
+.exit-trader-inventory:hover::before {
+  color: #4B0082;
+}
+
+.exit-trader-inventory:hover::after {
+  color: #4B0082;
 }
 
 .product-card {
@@ -96,6 +176,7 @@
   border: 5px solid black;
   border-radius: 10px;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 .trader-cart-item.visible {

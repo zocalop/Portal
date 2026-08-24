@@ -1,7 +1,6 @@
 
-
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from './CartSlice.jsx';
+import { removeItem, updateQuantity } from '../Cart/CartSlice.jsx';
 
 const StrangerInventory = ({ onCloseStrangerInventory }) => {
   const cart = useSelector(state => state.cart.items); 
@@ -58,13 +57,12 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
         ))}
       </div>
       <div style={{ marginTop: '20px', color: 'black', }} className="total-cart-amount"></div>
-      <div className="continue-shopping-btn">
-        <button onClick={onContinueShopping}>Continue Shopping</button>
-        <br />
-        <button onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
+      <div className="">
+        <button onClick={onCloseStrangerInventory}>Close Inventory</button>
       </div>
     </div>
   );
 }
 
 export default StrangerInventory;
+
