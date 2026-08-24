@@ -20,7 +20,12 @@ function ReturnToButton() {
   if (['/', '/derive', '/seydaneen', '/seydaneenleave', '/traderproductlist'].includes(location.pathname)) {
     return null;
   }
-  let returnTo = `Leave ${whereAmI}`;
+  let returnTo;
+  if (location.pathname === '/theroadout') {
+    returnTo = `Take ${whereAmI}`;
+  } else {
+    returnTo = `Leave ${whereAmI}`;
+  }
 
   return (
     <>
