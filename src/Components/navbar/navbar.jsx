@@ -4,13 +4,40 @@ import { useState } from 'react';
 import StrangerInventory from './StrangerInventory.jsx';
 import { useLocation } from 'react-router-dom';
 import { TraderNavbar } from '../Trader/TraderProductList.jsx';
+import { Link } from 'react-router-dom';
+
+function ReturnToButton() {
+  const location = useLocation();
+  const locations = {
+    '/gamblersden': "Gambler's Den",
+    '/trader': "Trader",
+    '/inn': "Inn",
+    '/bookhouse': "Bookhouse",
+    '/theroadout': "The Road Out"
+  };
+  const whereAmI = locations[location.pathname];     
+  if (['/', '/derive', '/seydaneen', '/seydaneenleave', '/traderproductlist'].includes(location.pathname)) {
+    return null;
+  }
+  let returnTo = `Leave ${whereAmI}`;
+
+  return (
+    <>
+      <Link className="return-to-button"
+        to="/seydaneenleave"
+      >
+        {returnTo}
+      </Link>
+    </>
+  );
+}
 
 function StrangerInventoryButton({ onOpenStrangerInventory }) {
 
   return (
     <>
       <button className="stranger-inventory-button"
-        tabIndex={0}
+        tabIndex={1}
         onClick={onOpenStrangerInventory}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
@@ -68,9 +95,8 @@ function Navbar() {
         onOpenStrangerInventory={handleOpenStrangerInventory}
         onCloseStrangerInventory={handleCloseStrangerInventory}
       />
-      
+      <ReturnToButton />
       <TraderNavbar />
-
     </div>
   );
 }

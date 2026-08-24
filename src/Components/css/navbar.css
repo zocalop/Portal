@@ -10,6 +10,7 @@
   bottom: 10px;
   width: 100%;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 .stranger-inventory-button {
@@ -21,10 +22,11 @@
   font-family: Garamond, serif;
   font-size: 1.5rem;
   line-height: 1.2;
-/*white-space: nowrap;
-  text-decoration: none;*/
+  white-space: nowrap;
+  text-decoration: none;
   color: black;
   background-color: transparent;
+  transition: background-color 0.8s ease;
   z-index: 1;
 
   display: inline-block;
@@ -55,9 +57,12 @@
   pointer-events: none;
 }
 
+.stranger-inventory-button:hover {
+  background-color: #c9a227;
+}
+
 .stranger-inventory-item {
   position: fixed;
-/*inset: 0*/;
   top: 0;
   bottom: 0;
   right: 0;
@@ -79,3 +84,45 @@
   pointer-events: auto;
 }
 
+.return-to-button {
+  position: relative;  /* Was fixed when alone at top of page */
+/*top: 10px;  
+  left: 50%;
+  transform: translateX(-50%);*/
+
+  font-family: Garamond, serif;
+  font-size: 1.5rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+  background-color: transparent;
+  z-index: 1;
+
+  display: inline-block;
+  border: 3px double #6b583d;
+  padding: 12px 30px;
+}
+.return-to-button::before {
+  content: "✦";
+  position: absolute;
+
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 8px;
+  
+  pointer-events: none;
+}
+
+.return-to-button::after {
+  content: "✦";
+  position: absolute;
+
+  top: +41px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 8px;
+
+  pointer-events: none;
+}

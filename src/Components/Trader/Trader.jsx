@@ -23,17 +23,6 @@ function Trader() {
           See the trader's wares
         </Link>
       </div>
-      <Link
-        to="/seydaneenleave"
-        className="exit"
-          style={{
-            '--exit-top': '750px',
-            '--star-top': '-16px',
-            '--star-bottom': '+41px',
-          }}
-      >
-        Leave the Trader
-      </Link>
     </div>
   );
 }
