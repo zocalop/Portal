@@ -9,7 +9,8 @@ import Trader from './Components/Trader/Trader.jsx';
 import TraderProductList from './Components/Trader/TraderProductList.jsx';
 import Bookhouse from './Components/Bookhouse.jsx';
 import Inn from './Components/Inn.jsx';
-import TheRoadOut from './Components/TheRoadOut.jsx';
+import TheRoadOut from './Components/TheRoadOut/TheRoadOut.jsx';
+import Parallax from './Components/TheRoadOut/Parallax.jsx';
 import SeydaNeenLeave from './Components/SeydaNeenLeave.jsx';
 
 import Navbar from './Components/navbar/navbar.jsx';
@@ -17,6 +18,9 @@ import Navbar from './Components/navbar/navbar.jsx';
 import './Components/css/App.css';
 import './Components/css/Trader.css';
 import './Components/css/navbar.css';
+import './Components/css/TheRoadOut.css';
+import './Components/css/Parallax.css';
+import './Components/css/CartItem.css';
 
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -50,6 +54,7 @@ function App() {
           <Route path="/bookhouse" element={<Bookhouse />} />
           <Route path="/inn" element={<Inn />} />
           <Route path="/theroadout" element={<TheRoadOut />} />
+          <Route path="/parallax" element={<Parallax />} />
           <Route path="/seydaneenleave" element={<SeydaNeenLeave />} />
         </Routes>
 

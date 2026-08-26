@@ -10,7 +10,7 @@ const CartItem = ({ onContinueShopping }) => {
     let total = 0;
     cart.forEach((item) => {
       const quantity = item.quantity;
-      const cost = parseFloat(item.cost.substring(1));
+      const cost = item.cost;
       total += quantity * cost;
     });
     return total;
@@ -20,6 +20,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleIncrement = (item) => {
+    dispatch(updateQuantity({ name: item.name, quantity: item.quantity + 1 }));
   };
 
   const handleContinueShopping = (e) => {
@@ -27,31 +28,42 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleCheckoutShopping = (e) => {
+    alert('Purchase ability will be enabled upon backend construction.');
   };
 
   const handleRemove = (item) => {
+    dispatch(removeItem(item.name));
   };
 
   const calculateTotalCost = (item) => {
+    let subtotal = 0;
+    const quantity = item.quantity;
+    const cost = item.cost;
+    subtotal += quantity * cost;
+    return subtotal;
   };
 
   return (
     <div className="cart-container">
-      <h2>Total Cart Amount:  {calculateTotalAmount(cart)}</h2>
-      <div>
+      <div className="cart-total"><h2>Total Cart Amount:  {calculateTotalAmount(cart)} coins</h2></div>
+      <div className="cart-items">
         {cart.map(item => (
           <div className="cart-item" key={item.name}>
             <img className="cart-item-image" src={item.image} alt={item.name} />
             <div className="cart-item-details">
               <div className="cart-item-name">{item.name}</div>
-              <div className="cart-item-cost">{item.cost}</div>
+              <div className="cart-item-cost">{item.cost} coins</div>
               <div className="cart-item-quantity">
                 <button className="cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                <span className="cart-item-quantity-value">{item.quantity}</span>
+                <span className="cart-item-quantity-value"> {item.quantity} </span>
                 <button className="cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
-              <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
-              <div className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</div>
+              <div className="cart-item-total">Total: {calculateTotalCost(item)} coins</div>
+              <button className="cart-item-delete"
+                onClick={() => handleRemove(item)}
+              >
+                Remove
+              </button>
             </div>
           </div>
         ))}

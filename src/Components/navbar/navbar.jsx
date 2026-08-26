@@ -6,6 +6,7 @@ import { useLocation } from 'react-router-dom';
 import { TraderNavbar } from '../Trader/TraderProductList.jsx';
 import { Link } from 'react-router-dom';
 import { TraderWares } from '../Trader/Trader.jsx';
+import { RoadOutButton } from '../TheRoadOut/TheRoadOut.jsx';
 
 function ReturnToButton() {
   const location = useLocation();
@@ -22,7 +23,7 @@ function ReturnToButton() {
   }
   let returnTo;
   if (location.pathname === '/theroadout') {
-    returnTo = `Take ${whereAmI}`;
+    returnTo = `Stay in Seyda Neen`;
   } else {
     returnTo = `Leave ${whereAmI}`;
   }
@@ -30,7 +31,7 @@ function ReturnToButton() {
   return (
     <>
       <Link className="stranger-inventory-button"
-        to="/seydaneenleave"
+        to='/seydaneenleave'
       >
         {returnTo}
       </Link>
@@ -104,6 +105,7 @@ function Navbar() {
       <ReturnToButton />
       <TraderWares />
       <TraderNavbar />
+      <RoadOutButton />
     </div>
   );
 }

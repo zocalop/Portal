@@ -69,19 +69,19 @@ function TraderProductList() {
           name: "Spriggan Sap",
           image: "https://static.wikia.nocookie.net/elderscrolls/images/8/8f/Skyrim_spriggan_sap.png/revision/latest/scale-to-width-down/1000?cb=20120902145056",
           description: "Unknown",
-          cost: "3 coins"
+          cost: "3"
         },
         {
           name: "Bee in a Jar",
           image: "https://static.wikia.nocookie.net/elderscrolls/images/9/96/TESV_Bee_In_A_Jar_Crop.png/revision/latest?cb=20120909073812",
           description: "A bee, in a jar.",
-          cost: "5 coins"
+          cost: "5"
         },
         {
           name: "Empty Wine Bottle",
           image: "https://static.wikia.nocookie.net/elderscrolls/images/e/e1/Empty_Wine_Bottle.png/revision/latest?cb=20120620043015",
           description: "A bottle of generic wine, sans vin.",
-          cost: "1 coin"
+          cost: "1"
         }
       ]
     },
@@ -92,15 +92,28 @@ function TraderProductList() {
           name: "Honeycomb",
           image: "https://static.wikia.nocookie.net/elderscrolls/images/7/7c/Honeycomb.png/revision/latest?cb=20120902141456",
           description: "Unprocessed honeycomb",
-          cost: "5 coins"
+          cost: "5"
         }
       ]
     }
   ]
 
+//////// Item purchase handler set ////////
+
+  const handleAddToPurchase = (e, item) => {
+    e.preventDefault();
+    dispatch(addItem(item));
+  };
+
+  const isInCart = (itemName) =>
+    cart.some(item => item.name === itemName);
+  
+  const addButton = (item) =>
+    isInCart(item.name) ? "Added to Purchase" : "Add to Purchase";
+
   return (
 
-    <div className="Trader">
+    <div className="Trader-Wares">
       <br />
       <div className="product-grid">
         <div className="product-list">
@@ -118,7 +131,14 @@ function TraderProductList() {
                   />
                   <h3>{item.name}</h3>
                   <p>{item.description}</p>
-                  <p>{item.cost}</p>
+                  <p style={{ 'color': '#8B451F'  }}>{item.cost} coins</p>
+                  <button 
+                    className="add-to-purchase-button"
+                    onClick={(e) => handleAddToPurchase(e, item)}
+                    disabled={isInCart(item.name)}
+                  >
+                    {addButton(item)}
+                  </button>
                 </div>
               ))}
             </React.Fragment>
@@ -126,7 +146,6 @@ function TraderProductList() {
         </div>
       </div>
       <br />
-   {/*<TraderNavbar />*/}
     </div>
   );
 }

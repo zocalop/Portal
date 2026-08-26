@@ -1,2 +1,46 @@
 
+.cart-total {
+  text-align: center;
+  padding: 20px;
+}
+
+h2 {
+  font-family: Garamond,serif;
+  color: #800020;
+  text-decoration: underline;
+}
+
+.cart-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 220px));
+  gap: .2rem;
+  justify-content: center;
+}
+
+.cart-item {
+  margin-bottom: 0px;
+  padding: 20px;
+  color: #800020;
+  font-family: Garamond,serif;
+  background-color: transparent/*#fff*/;
+  border: 10px, double, #3B2416;
+  border-radius: 0px;
+  text-align: center;
+  position: relative;
+}
+
+.cart-item-image {
+  height: 100px;
+  width: auto;
+}
+
+.cart-container {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-item-delete {
+
+}
+
 
