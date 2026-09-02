@@ -1,30 +1,27 @@
 
 .cart-total {
+  font-family: Garamond,serif;
+  font-size: 1.5rem;
+  color: #3B2416;
   text-align: center;
   padding: 20px;
 }
 
-h2 {
-  font-family: Garamond,serif;
-  color: #800020;
-  text-decoration: underline;
-}
-
 .cart-items {
   display: grid;
-  grid-template-columns: repeat(3, minmax(180px, 220px));
-  gap: .2rem;
+  grid-template-columns: repeat(3, minmax(180px, 210px));
+  gap: .3rem;
   justify-content: center;
 }
 
 .cart-item {
   margin-bottom: 0px;
   padding: 20px;
-  color: #800020;
+  color: #3B2416;
   font-family: Garamond,serif;
   background-color: transparent/*#fff*/;
   border: 10px, double, #3B2416;
-  border-radius: 0px;
+  border-radius: 100px;
   text-align: center;
   position: relative;
 }
@@ -41,6 +38,10 @@ h2 {
 
 .cart-item-delete {
 
+}
+
+.total {
+  color: #8B451F;
 }
 
 

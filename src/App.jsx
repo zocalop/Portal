@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 import Portal from './Components/Portal.jsx';
 import Derive from './Components/Derive.jsx';
@@ -14,6 +15,7 @@ import Parallax from './Components/TheRoadOut/Parallax.jsx';
 import SeydaNeenLeave from './Components/SeydaNeenLeave.jsx';
 
 import Navbar from './Components/navbar/navbar.jsx';
+import CartPersistence from './Components/Cart/CartPersistence.jsx';
 
 import './Components/css/App.css';
 import './Components/css/Trader.css';
@@ -40,6 +42,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+
         <ScrollToTop />
 
         <Navbar />

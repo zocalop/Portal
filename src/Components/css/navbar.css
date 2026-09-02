@@ -23,12 +23,15 @@
   line-height: 1.2;
   white-space: nowrap;
   text-decoration: none;
-  color: black;
+  color: #9B111E;
   background-color: transparent;
   transition: background-color 0.8s ease;
+  transition: opacity 0.8s ease;
+  opacity: 0.5;
 
   display: inline-block;
-  border: 3px double #6b583d;
+  border: 5px double #3B2416;
+  border-radius: 10px;
   padding: 12px 30px;
 }
 .stranger-inventory-button::before {
@@ -59,14 +62,15 @@
 
 .stranger-inventory-button:hover {
   background-color: #c9a227;
+  opacity: 1;
 }
 
 .stranger-inventory-button:hover::before {
-  color: #4B0082;
+  color: #9B111E;
 }
 
 .stranger-inventory-button:hover::after {
-  color: #4B0082;
+  color: #9B111E;
 }
 
 .stranger-inventory-item {

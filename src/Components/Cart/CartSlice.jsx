@@ -1,11 +1,40 @@
 
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import { saveCart } from './CartAPI.js';
+import { getCart } from './CartAPI.js';
+
+/*This is for in-browser persistence*/
+const savedCart = localStorage.getItem('cart');
+const initialState = {
+  items: savedCart ? JSON.parse(savedCart) : [],
+};
+
+export const saveCartToDatabase = createAsyncThunk(
+  "cart/saveCartToDatabase",
+  async ({ user_id, cart }) => {
+    const cartForApi = cart.map(item => ({
+      product_name: item.name,
+      quantity: item.quantity
+    }));
+
+    return await saveCart(user_id, cartForApi);
+  }
+);
+
+export const getCartFromDatabase = createAsyncThunk(
+  "cart/getCartFromDatabase",
+  async (user_id) => {
+    return await getCart(user_id);
+  }
+);
 
 export const CartSlice = createSlice({
   name: 'cart',
   initialState: {
-    items: [], //Initialize items as an empty array
+    items: [],
+    cartLoaded: false
   },
+
   reducers:  {
     addItem: (state, action) => {
       const { name, image, cost } = action.payload;
@@ -28,6 +57,16 @@ export const CartSlice = createSlice({
         itemToUpdate.quantity = quantity;
       }
     }
+  },
+  
+  extraReducers: (builder) => {
+    builder.addCase(
+      getCartFromDatabase.fulfilled,
+      (state, action) => {
+        state.items = action.payload
+        state.cartLoaded = true;
+      }
+    );
   }
 });
 

@@ -97,11 +97,11 @@ function Navbar() {
   
   return (
     <div className="navbar">
-      <StrangerInventoryUI
+   {/*<StrangerInventoryUI
         showStrangerInventory={showStrangerInventory}
         onOpenStrangerInventory={handleOpenStrangerInventory}
         onCloseStrangerInventory={handleCloseStrangerInventory}
-      />
+      />*/}
       <ReturnToButton />
       <TraderWares />
       <TraderNavbar />

@@ -6,6 +6,7 @@ import { addItem } from '../Cart/CartSlice.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import { ItemArray } from './ItemArray.js';
 
 export function TraderNavbar() {
   const [showCart, setShowCart] = useState(false);
@@ -32,7 +33,7 @@ export function TraderNavbar() {
           '--star-bottom': '+41px'
         }}
       >
-        Close trader inventory
+        Close Trader Inventory
       </Link>
       <div>
         <p 
@@ -61,42 +62,6 @@ function TraderProductList() {
   const [searchTerm, setSearchTerm] = useState("");
   const cart = useSelector(state => state.cart.items);
   const dispatch = useDispatch(); 
-  const itemArray = [
-    {
-      Category: "Miscellanea",
-      wares: [
-        {
-          name: "Spriggan Sap",
-          image: "https://static.wikia.nocookie.net/elderscrolls/images/8/8f/Skyrim_spriggan_sap.png/revision/latest/scale-to-width-down/1000?cb=20120902145056",
-          description: "Unknown",
-          cost: "3"
-        },
-        {
-          name: "Bee in a Jar",
-          image: "https://static.wikia.nocookie.net/elderscrolls/images/9/96/TESV_Bee_In_A_Jar_Crop.png/revision/latest?cb=20120909073812",
-          description: "A bee, in a jar.",
-          cost: "5"
-        },
-        {
-          name: "Empty Wine Bottle",
-          image: "https://static.wikia.nocookie.net/elderscrolls/images/e/e1/Empty_Wine_Bottle.png/revision/latest?cb=20120620043015",
-          description: "A bottle of generic wine, sans vin.",
-          cost: "1"
-        }
-      ]
-    },
-    {
-      Category: "Food",
-      wares: [
-        {
-          name: "Honeycomb",
-          image: "https://static.wikia.nocookie.net/elderscrolls/images/7/7c/Honeycomb.png/revision/latest?cb=20120902141456",
-          description: "Unprocessed honeycomb",
-          cost: "5"
-        }
-      ]
-    }
-  ]
 
 //////// Item purchase handler set ////////
 
@@ -115,36 +80,36 @@ function TraderProductList() {
 
     <div className="Trader-Wares">
       <br />
-      <div className="product-grid">
         <div className="product-list">
           {itemArray.map(category => (
-            <React.Fragment key={category.Category}>
-              <div className="category-title">
-                <h2>{category.Category}</h2>
+            <div className="product-category" key={category.Category}>
+              <div className="category-title-container">
+                <p className="category-title-style">{category.Category}</p>
               </div>
-              {category.wares.map(item => (
-                <div className="product-card" key={item.name}>
-                  <img
-                    className="product-image"
-                    src={item.image}
-                    alt={item.name}
-                  />
-                  <h3>{item.name}</h3>
-                  <p>{item.description}</p>
-                  <p style={{ 'color': '#8B451F'  }}>{item.cost} coins</p>
-                  <button 
-                    className="add-to-purchase-button"
-                    onClick={(e) => handleAddToPurchase(e, item)}
-                    disabled={isInCart(item.name)}
-                  >
-                    {addButton(item)}
-                  </button>
-                </div>
-              ))}
-            </React.Fragment>
+              <div className="product-grid">
+                {category.wares.map(item => (
+                  <div className="product-card" key={item.name}>
+                    <img
+                      className="product-image"
+                      src={item.image}
+                      alt={item.name}
+                    />
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <p style={{ 'color': '#8B451F'  }}>{item.cost} coin</p>
+                    <button 
+                      className="add-to-purchase-button"
+                      onClick={(e) => handleAddToPurchase(e, item)}
+                      disabled={isInCart(item.name)}
+                    >
+                      {addButton(item)}
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
-      </div>
       <br />
     </div>
   );

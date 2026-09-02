@@ -10,7 +10,7 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
     let total = 0;
     cart.forEach((item) => {
       const quantity = item.quantity;
-      const cost = parseFloat(item.cost.substring(1));
+      const cost = item.cost;
       total += quantity * cost;
     });
     return total;
