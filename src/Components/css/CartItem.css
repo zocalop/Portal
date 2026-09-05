@@ -20,8 +20,8 @@
   color: #3B2416;
   font-family: Garamond,serif;
   background-color: transparent/*#fff*/;
-  border: 10px, double, #3B2416;
-  border-radius: 100px;
+  border: 10px, solid, #3B2416;
+  border-radius: 0px;
   text-align: center;
   position: relative;
 }

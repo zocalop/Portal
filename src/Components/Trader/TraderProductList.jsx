@@ -6,7 +6,7 @@ import { addItem } from '../Cart/CartSlice.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { ItemArray } from './ItemArray.js';
+import { itemArray } from './ItemArray.js';
 
 export function TraderNavbar() {
   const [showCart, setShowCart] = useState(false);
