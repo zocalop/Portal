@@ -1,7 +1,7 @@
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { saveCart } from './CartAPI.js';
-import { getCart } from './CartAPI.js';
+import { saveCart, getCart } from './CartAPI.js';
+import { itemArray } from '../Trader/ItemArray.js';
 
 /*This is for in-browser persistence*/
 const savedCart = localStorage.getItem('cart');
@@ -63,7 +63,25 @@ export const CartSlice = createSlice({
     builder.addCase(
       getCartFromDatabase.fulfilled,
       (state, action) => {
-        state.items = action.payload
+        state.items = action.payload.map(dbItem => {
+          const product = itemArray
+            .flatMap(category => category.wares)
+            .find(item => item.name === dbItem.product_name);
+
+          // Product no longer exists in the catalog //
+          if (!product) {
+            return null;
+          }
+
+          return {
+            name: product.name,
+            image: product.image,
+            cost: product.cost,
+            quantity: dbItem.quantity
+          };
+        })
+        .filter(item => item !== null);
+
         state.cartLoaded = true;
       }
     );
