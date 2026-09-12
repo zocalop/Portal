@@ -23,6 +23,7 @@ import './Components/css/navbar.css';
 import './Components/css/TheRoadOut.css';
 import './Components/css/Parallax.css';
 import './Components/css/CartItem.css';
+import './Components/css/Portal.css';
 
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
