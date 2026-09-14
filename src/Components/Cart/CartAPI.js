@@ -1,7 +1,7 @@
 
-export const saveCart = async (user_id, cart) => {
+export const saveCart = async (cart) => {
   const response = await fetch(
-    `http://localhost:5000/user/${user_id}`,
+    'http://localhost:5000/user/cart',
     {
       method: "PUT",
       headers: {
@@ -20,9 +20,9 @@ export const saveCart = async (user_id, cart) => {
   return response.json();
 };
 
-export const getCart = async (user_id, cart) => {
+export const getCart = async () => {
   const response = await fetch(
-    `http://localhost:5000/user/${user_id}`
+    'http://localhost:5000/user/cart'
   );
   if (!response.ok) {
     throw new Error("Failed to load cart.");

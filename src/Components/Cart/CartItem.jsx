@@ -9,7 +9,7 @@ const CartItem = ({ onContinueShopping }) => {
   const cartLoaded = useSelector(state => state.cart.cartLoaded);
 
   useEffect(() => {
-    dispatch(getCartFromDatabase(4));
+    dispatch(getCartFromDatabase());
   }, [dispatch]);
 
   useEffect(() => {
@@ -19,7 +19,6 @@ const CartItem = ({ onContinueShopping }) => {
 
     dispatch(
       saveCartToDatabase({
-        user_id: 4,
         cart: cart
       })
     );
