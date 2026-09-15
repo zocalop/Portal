@@ -36,6 +36,8 @@ function Portal() {
 
     } catch (error) {
       console.log(error);
+      setShowPassword(false);
+      setShowUsername(true);
     }
   };
 

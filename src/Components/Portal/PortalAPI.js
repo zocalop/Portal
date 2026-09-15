@@ -20,7 +20,7 @@ export const login = async (username, password) => {
 
 };
 
-export const register = asyc (firstName, lastName, cart) => {
+export const register = async (firstName, lastName, cart) => {
   const params = new URLSearchParams({
     firstName,
     lastName
