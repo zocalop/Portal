@@ -1,4 +1,4 @@
-import { login } from './PortalAPI.js';
+import { login, register } from './PortalAPI.js';
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -10,6 +10,10 @@ function Portal() {
   const [showMessage, setShowMessage] = useState(true);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [checked, setChecked] = useState(false);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [showLastName, setShowLastName] = useState(false);
 
   const navigate = useNavigate();
 
@@ -43,9 +47,33 @@ function Portal() {
 
   const handleUsername = (e) => {
     e.preventDefault();
-    setShowUsername(false);
-    setShowPassword(true);
+
+    if (!checked) {
+      setShowUsername(false);
+      setShowPassword(true);
+    } else {
+      setFirstName(username);
+      setShowUsername(false);
+      setShowLastName(true);
+    }
   };
+
+  const handleLastName = async (e) => {
+    e.preventDefault();
+
+    try {
+      await register(firstName, lastName);
+
+      // User successfully registered
+      navigate('/derive');
+
+    } catch (error) {
+      console.log(error);
+      setShowLastName(false);
+      setShowUsername(true);
+    }
+  };
+
 
   const handleMessageClick = (e) => {
     setShowUsername(true);
@@ -81,6 +109,15 @@ function Portal() {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={(e) => setChecked(e.target.checked)}
+            />
+              Click before answering,<br />if this is your first time.
+          </label>
         </form>
       )}
       {showPassword && (
@@ -99,7 +136,22 @@ function Portal() {
           />
         </form>
       )}
-
+      {showLastName && (
+        <form
+          className="user-reg-form"
+          onSubmit={handleLastName}
+        >
+          <button type="submit">
+            And your last name?
+          </button>
+          <input
+            type="text"
+            placeholder=''
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </form>
+       )}
       <div className="scroll-space"></div>
     </div>
   );
