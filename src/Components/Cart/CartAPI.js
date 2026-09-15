@@ -7,6 +7,7 @@ export const saveCart = async (cart) => {
       headers: {
         "Content-Type": "application/json"
       },
+      credentials: "include",
       body: JSON.stringify({
         cart
       })
@@ -22,11 +23,15 @@ export const saveCart = async (cart) => {
 
 export const getCart = async () => {
   const response = await fetch(
-    'http://localhost:5000/user/cart'
+    'http://localhost:5000/user/cart',
+    {
+      credentials: "include"
+    }
   );
   if (!response.ok) {
     throw new Error("Failed to load cart.");
   }
-  const user = await response.json();
-  return user.cart;
+  const cart = await response.json();
+
+  return cart;
 };

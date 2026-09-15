@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Portal from './Components/Portal.jsx';
+import Portal from './Components/Portal/Portal.jsx';
 import Derive from './Components/Derive.jsx';
 import SeydaNeen from './Components/SeydaNeen.jsx';
 import GamblersDen from './Components/GamblersDen.jsx';
