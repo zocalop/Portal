@@ -1,11 +1,17 @@
-
+import { login } from './PortalAPI.js';
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Portal() {
   const [scroll, setScroll] = useState(0);
-  const [showForm, setShowForm] = useState(false);
+  const [showUsername, setShowUsername] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
   const [showMessage, setShowMessage] = useState(true);
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,13 +25,29 @@ function Portal() {
 
   const scale = Math.min(1, 0.01 + scroll / 5000);
 
-  const handleMessageClick = (e) => {
-    setShowForm(true);
-    setShowMessage(false);
+  const handlePassword = async (e) => {
     e.preventDefault();
+
+    try {
+      await login(username, password);
+
+      // User successfully logged in 
+      navigate('/derive');
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const handleIdentifyYourself = (e) => {
+  const handleUsername = (e) => {
+    e.preventDefault();
+    setShowUsername(false);
+    setShowPassword(true);
+  };
+
+  const handleMessageClick = (e) => {
+    setShowUsername(true);
+    setShowMessage(false);
     e.preventDefault();
   };
 
@@ -43,15 +65,36 @@ function Portal() {
       </div>
      )}
 
-      {showForm && (
-        <form className="user-reg-form">
-          <button 
-            type="submit"
-            onClick={(e) => handleIdentifyYourself(e)}
-          >
+      {showUsername && (
+        <form 
+          className="user-reg-form"
+          onSubmit={handleUsername}
+        >
+          <button type="submit">
             Identify yourself,
           </button>
-          <input type="text" placeholder="Stranger" />
+          <input
+            type="text"
+            placeholder="Stranger"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </form>
+      )}
+      {showPassword && (
+        <form
+          className="user-reg-form"
+          onSubmit={handlePassword}
+        >
+          <button type="submit">
+            And your last name?
+          </button>
+          <input
+            type="password"
+            placeholder=""
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </form>
       )}
 
