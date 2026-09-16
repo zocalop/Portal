@@ -14,6 +14,8 @@ function Portal() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [showLastName, setShowLastName] = useState(false);
+  const [userId, setUserId] = useState('');
+  const [showUserId, setShowUserId] = useState(false);
 
   const navigate = useNavigate();
 
@@ -62,9 +64,15 @@ function Portal() {
     e.preventDefault();
 
     try {
-      await register(firstName, lastName);
+      const user = await register(firstName, lastName);
 
       // User successfully registered
+      setUserId(user.id);
+      setShowUserId(true);
+      setShowLastName(false);
+
+      const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+      await wait(5000);
       navigate('/derive');
 
     } catch (error) {
@@ -152,6 +160,11 @@ function Portal() {
           />
         </form>
        )}
+      <div className="user-reg-form">
+       {showUserId && (
+         <h3><strong>You are hereforth known as {userId}</strong></h3>
+       )}
+      </div>
       <div className="scroll-space"></div>
     </div>
   );
