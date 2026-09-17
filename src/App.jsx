@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import Portal from './Components/Portal.jsx';
+import Portal from './Components/Portal/Portal.jsx';
 import Derive from './Components/Derive.jsx';
 import SeydaNeen from './Components/SeydaNeen.jsx';
 import GamblersDen from './Components/GamblersDen.jsx';
@@ -23,6 +23,7 @@ import './Components/css/navbar.css';
 import './Components/css/TheRoadOut.css';
 import './Components/css/Parallax.css';
 import './Components/css/CartItem.css';
+import './Components/css/Portal.css';
 
 import { useLocation } from 'react-router-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';

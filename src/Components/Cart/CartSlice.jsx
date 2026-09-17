@@ -11,20 +11,20 @@ const initialState = {
 
 export const saveCartToDatabase = createAsyncThunk(
   "cart/saveCartToDatabase",
-  async ({ user_id, cart }) => {
+  async ({ cart }) => {
     const cartForApi = cart.map(item => ({
       product_name: item.name,
       quantity: item.quantity
     }));
 
-    return await saveCart(user_id, cartForApi);
+    return await saveCart(cartForApi);
   }
 );
 
 export const getCartFromDatabase = createAsyncThunk(
   "cart/getCartFromDatabase",
-  async (user_id) => {
-    return await getCart(user_id);
+  async () => {
+    return await getCart();
   }
 );
 

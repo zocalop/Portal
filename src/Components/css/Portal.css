@@ -1,0 +1,35 @@
+
+/* Portal.jsx and Derive.jsx*/
+.Portal {
+  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
+  min-height: 5000px;
+}
+
+/* Portal.jsx and Derive.jsx*/
+.portal-text {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+
+  transform-origin: center center;
+
+
+  font-family: Garamond, serif;
+  font-size: 4rem;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-decoration: none;
+  color: black;
+}
+
+/* Portal.jsx and Derive.jsx*/
+.scroll-space {
+  height: 5000px;
+}
+
+.user-reg-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
