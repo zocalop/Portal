@@ -134,7 +134,7 @@ function Portal() {
           onSubmit={handlePassword}
         >
           <button type="submit">
-            And your last name?
+            And your gateword?
           </button>
           <input
             type="password"
