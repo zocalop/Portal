@@ -31,6 +31,38 @@
   width: auto;
 }
 
+.cart-item-details {
+
+}
+
+.cart-item-name {
+
+}
+
+.cart-item-cost {
+
+}
+
+.cart-item-quantity {
+
+}
+
+.cart-item-button-dec {
+
+}
+
+.cart-item-quantity-value {
+
+}
+
+.cart-item-button-inc {
+
+}
+
+.cart-item-total {
+
+}
+
 .cart-container {
   width: 100%;
   box-sizing: border-box;
@@ -44,4 +76,6 @@
   color: #8B451F;
 }
 
+.continue-shopping-btn {
 
+}

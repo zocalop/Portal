@@ -91,7 +91,6 @@ const CartItem = ({ onContinueShopping }) => {
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '20px', color: 'black', }} className="total-cart-amount"></div>
       <div className="continue-shopping-btn">
         <button onClick={onContinueShopping}>Continue Shopping</button>
         <br />

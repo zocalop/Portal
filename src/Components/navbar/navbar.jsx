@@ -97,15 +97,15 @@ function Navbar() {
   
   return (
     <div className="navbar">
+      <TraderWares />
+      <ReturnToButton />
+      <TraderNavbar />
+      <RoadOutButton />
       <StrangerInventoryUI
         showStrangerInventory={showStrangerInventory}
         onOpenStrangerInventory={handleOpenStrangerInventory}
         onCloseStrangerInventory={handleCloseStrangerInventory}
       />
-      <ReturnToButton />
-      <TraderWares />
-      <TraderNavbar />
-      <RoadOutButton />
     </div>
   );
 }

@@ -1,87 +1,73 @@
 
-.StrangerInventory {
-  background: radial-gradient(circle at 20% 30%, rgba(255,255,255,.25), transparent 30%), radial-gradient(circle at 80% 70%, rgba(120,80,30,.12), transparent 35%),tan;
-  height: 1250px;
-  overflow-X: auto;
-  overflor-Y: auto;
+.cart-container {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-/*Same as see-wares*/
-.exit {
-  position: absolute;
-  top: var(--exit-top);
-  left: 50%;
-  transform: translateX(-50%);
-
-  font-family: Garamond, serif;
-  font-size: 1.5rem;
-  line-height: 1.2;
-  white-space: nowrap;
-  text-decoration: none;
-  color: black;
-
-  z-index: 1000;
-
-  display: inline-block;
-  border: 3px double #6b583d;
-  padding: 12px 30px;
-}
-.exit::before {
-  content: "✦";
-  position: absolute;
-
-  top: var(--star-top);
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 0 8px;
-}
-.exit::after {
-  content: "✦";
-  position: absolute;
-
-  top: var(--star-bottom);
-  left: 50%;
-  transform: translateX(-50%);
-
-  padding: 0 8px;
+.cart-items {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 210px));
+  gap: .3rem;
+  justify-content: center;
 }
 
-.product-card {
-  margin-bottom: 20px;
+.cart-item {
+  margin-bottom: 0px;
   padding: 20px;
+  color: #3B2416;
+  font-family: Garamond,serif;
   background-color: transparent/*#fff*/;
-  border: 5px, double, black;
-  border-radius: 15px;
+  border: 10px, solid, #3B2416;
+  border-radius: 0px;
   text-align: center;
   position: relative;
 }
 
-.product-image {
-  max-width: 100%;
-  height: 200px; /* Adjust height for better consistency */
-}
-
-.product-grid {
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-}
-
-.product-list {
-    display: grid; /* (CCChanged) */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 320px)); /* (AAAded) */
-    gap: 2rem; /* (CCChanged) */
-    justify-content: center;
-    padding: 20px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.category-title {
-  grid-column: 1 / -1;
+.cart-item-image {
   width: 100%;
-  text-align: center;
+  box-sizing: border-box;
+}
+
+.cart-item-details {
+
+}
+
+.cart-item-name {
+
+}
+
+.cart-item-cost {
+
+}
+
+.cart-item-quantity {
+
+}
+
+.cart-item-button-dec {
+
+}
+
+.cart-item-quantity-value {
+
+}
+
+.cart-item-button-inc {
+
+}
+
+.cart-item-total {
+
+}
+
+.total {
+  color: #8B451F;
+}
+
+.cart-item-delete {
+
+}
+
+.close-si-btn {
+
 }

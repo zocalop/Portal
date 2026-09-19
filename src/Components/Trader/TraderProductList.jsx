@@ -24,6 +24,23 @@ export function TraderNavbar() {
 
   return (
     <div className="trader-navbar">
+      <div>
+        <p
+          className = "exit-trader-inventory"
+          onClick={() => setShowCart(true)}
+          role = "button"
+          style={{
+            'cursor':'pointer',
+            '--star-top':'-16px',
+            '--star-bottom':'+41px'
+          }}
+        >
+          Review Purchase
+        </p>
+        <div className={`trader-cart-item ${showCart ? 'visible' : ''}`}>
+          <CartItem onContinueShopping={handleContinueShopping} />
+        </div>
+      </div>
       <Link
         to="/trader"
         className="exit-trader-inventory"
@@ -35,23 +52,6 @@ export function TraderNavbar() {
       >
         Close Trader Inventory
       </Link>
-      <div>
-        <p 
-          className = "exit-trader-inventory"
-          onClick={() => setShowCart(true)}
-          role = "button"
-          style={{ 
-            'cursor':'pointer',
-            '--star-top':'-16px',
-            '--star-bottom':'+41px'  
-          }}
-        >
-          Review Purchase
-        </p>
-        <div className={`trader-cart-item ${showCart ? 'visible' : ''}`}>
-          <CartItem onContinueShopping={handleContinueShopping} />
-        </div>
-      </div>
     </div>
   )
 }
