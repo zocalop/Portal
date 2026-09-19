@@ -36,27 +36,30 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
   };
 
   return (
-    <div className="cart-container">
-      <div className="cart-items">
+    <div className="si-container">
+      <div className="si-items">
         {cart.map(item => (
-          <div className="cart-item" key={item.name}>
-            <img className="cart-item-image" src={item.image} alt={item.name} />
-            <div className="cart-item-details">
-              <div className="cart-item-name">{item.name}</div>
-              <div className="cart-item-cost">{item.cost} coin</div>
-              <div className="cart-item-quantity">
-                <button className="cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                <span className="cart-item-quantity-value"> {item.quantity} </span>
-                <button className="cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
+          <div className="si-item" key={item.name}>
+            <img className="si-item-image" src={item.image} alt={item.name} />
+            <div className="si-item-details">
+              <div className="si-item-name">{item.name}</div>
+              <div className="si-item-quantity">
+                <button className="si-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
+                <span className="si-item-quantity-value"> {item.quantity} </span>
+                <button className="si-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
-              <div className="cart-item-total">Total: <span className="total">{calculateTotalCost(item)} coin</span></div>
-              <div className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</div>
+              <button
+                className="si-item-delete" 
+                onClick={() => handleRemove(item)}
+              >
+                Drop Item
+              </button>
             </div>
           </div>
         ))}
       </div>
-      <div className="close-si-btn">
-        <button onClick={onCloseStrangerInventory}>Close Inventory</button>
+      <div>
+        <button className="close-si-btn" onClick={onCloseStrangerInventory}>Close Inventory</button>
       </div>
     </div>
   );

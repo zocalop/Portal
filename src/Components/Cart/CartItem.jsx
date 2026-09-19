@@ -1,7 +1,7 @@
 
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity, saveCartToDatabase, getCartFromDatabase } from './CartSlice';
+import { removeItem, updateQuantity, clearCart, saveCartToDatabase, getCartFromDatabase } from './CartSlice';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items); 
@@ -51,7 +51,8 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   const handleCheckoutShopping = (e) => {
-    alert('Purchase ability will be enabled upon backend construction.');
+    e.preventDefault();
+    dispatch(clearCart());
   };
 
   const handleRemove = (item) => {
@@ -91,10 +92,10 @@ const CartItem = ({ onContinueShopping }) => {
           </div>
         ))}
       </div>
-      <div className="continue-shopping-btn">
-        <button onClick={onContinueShopping}>Continue Shopping</button>
+      <div>
+        <button className="continue-shopping-btn" onClick={onContinueShopping}>Continue Shopping</button>
         <br />
-        <button onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
+        <button className="checkout-button" onClick={(e) => handleCheckoutShopping(e, cart)}>Checkout</button>
         <br />
       </div>
     </div>

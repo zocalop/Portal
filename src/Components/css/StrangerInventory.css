@@ -1,17 +1,18 @@
 
-.cart-container {
+.si-container {
   width: 100%;
   box-sizing: border-box;
 }
 
-.cart-items {
+.si-items {
   display: grid;
   grid-template-columns: repeat(3, minmax(180px, 210px));
   gap: .3rem;
   justify-content: center;
+  padding-top: 3.65rem;
 }
 
-.cart-item {
+.si-item {
   margin-bottom: 0px;
   padding: 20px;
   color: #3B2416;
@@ -23,51 +24,57 @@
   position: relative;
 }
 
-.cart-item-image {
-  width: 100%;
-  box-sizing: border-box;
+.si-item-image {
+  height: 100px;
+  box-sizing: auto;
 }
 
-.cart-item-details {
-
-}
-
-.cart-item-name {
+.si-item-details {
 
 }
 
-.cart-item-cost {
+.si-item-name {
 
 }
 
-.cart-item-quantity {
+.si-item-quantity {
 
 }
 
-.cart-item-button-dec {
+.si-item-button-dec {
+  background-color: transparent;
+  border-color: #3B2416;
+  color: #3B2416;
+}
+
+.si-item-quantity-value {
 
 }
 
-.cart-item-quantity-value {
-
+.si-item-button-inc {
+  background-color: transparent;
+  border-color: #3B2416;
+  color: #3B2416;
 }
 
-.cart-item-button-inc {
-
-}
-
-.cart-item-total {
-
-}
-
-.total {
-  color: #8B451F;
-}
-
-.cart-item-delete {
-
+.si-item-delete {
+  color: #c9a227;
+  font-size: 15px;
+  font-family: garamond;
+  background-color: #3B2416;
+  border-radius: 0px;
+  border-color: #c9a227;
+  cursor: pointer;
+  padding: 5px 30px;
 }
 
 .close-si-btn {
-
+  color: #c9a227;
+  font-size: 15px;
+  font-family: garamond;
+  background-color: #3B2416;
+  border-radius: 0px;
+  border-color: #c9a227;
+  cursor: pointer;
+  padding: 5px 30px;
 }
