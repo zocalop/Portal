@@ -2,6 +2,7 @@
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity, clearCart, saveCartToDatabase, getCartFromDatabase } from './CartSlice';
+import { recieveItem } from '../navbar/SISlice';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items); 
@@ -52,6 +53,9 @@ const CartItem = ({ onContinueShopping }) => {
 
   const handleCheckoutShopping = (e) => {
     e.preventDefault();
+    cart.forEach(item => {
+      dispatch(recieveItem(item));
+    })
     dispatch(clearCart());
   };
 
@@ -95,7 +99,7 @@ const CartItem = ({ onContinueShopping }) => {
       <div>
         <button className="continue-shopping-btn" onClick={onContinueShopping}>Continue Shopping</button>
         <br />
-        <button className="checkout-button" onClick={(e) => handleCheckoutShopping(e, cart)}>Checkout</button>
+        <button className="checkout-button" onClick={(e) => handleCheckoutShopping(e)}>Checkout</button>
         <br />
       </div>
     </div>

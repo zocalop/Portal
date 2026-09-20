@@ -1,20 +1,10 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from '../Cart/CartSlice.jsx';
+import { recieveItem, dropItem } from './SISlice.jsx';
 
 const StrangerInventory = ({ onCloseStrangerInventory }) => {
-  const cart = useSelector(state => state.cart.items); 
+  const stranger_inventory = useSelector(state => state.stranger_inventory.items); 
   const dispatch = useDispatch();
-  
-  const calculateTotalAmount = (cart) => {
-    let total = 0;
-    cart.forEach((item) => {
-      const quantity = item.quantity;
-      const cost = item.cost;
-      total += quantity * cost;
-    });
-    return total;
-  };
 
   const handleDecrement = (item) => {
   };
@@ -38,7 +28,7 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
   return (
     <div className="si-container">
       <div className="si-items">
-        {cart.map(item => (
+        {stranger_inventory.map(item => (
           <div className="si-item" key={item.name}>
             <img className="si-item-image" src={item.image} alt={item.name} />
             <div className="si-item-details">
