@@ -1,10 +1,27 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { recieveItem, dropItem } from './SISlice.jsx';
+import { useEffect } from 'react';
+import { recieveItem, dropItem, getSIFromDatabase, saveSIToDatabase } from './SISlice.jsx';
 
 const StrangerInventory = ({ onCloseStrangerInventory }) => {
   const stranger_inventory = useSelector(state => state.stranger_inventory.items); 
   const dispatch = useDispatch();
+  const siLoaded = useSelector(state => state.stranger_inventory.siLoaded);
+
+  useEffect(() => {
+    dispatch(getSIFromDatabase());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (!siLoaded) {
+      return;
+    }
+    dispatch(
+      saveSIToDatabase({
+        si: stranger_inventory
+      })
+    );
+  }, [stranger_inventory, siLoaded, dispatch]);
 
   const handleDecrement = (item) => {
   };
