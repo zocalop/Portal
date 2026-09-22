@@ -23,17 +23,17 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
     console.log("SI LOADED:", siLoaded);
   }, [stranger_inventory, siLoaded]);
 
-//  useEffect(() => {
-//    if (!siLoaded) {
-//      return;
-//    }
+  useEffect(() => {
+    if (!siLoaded) {
+      return;
+    }
 
-//    dispatch(
-//      saveSIToDatabase({
-//        si: stranger_inventory
-//      })
-//    );
-//  }, [stranger_inventory, siLoaded, dispatch]);
+    dispatch(
+      saveSIToDatabase({
+        si: stranger_inventory
+      })
+    );
+  }, [stranger_inventory, siLoaded, dispatch]);
 
   const handleDecrement = (item) => {
   };
