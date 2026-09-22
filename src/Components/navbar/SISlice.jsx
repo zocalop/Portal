@@ -17,7 +17,12 @@ export const saveSIToDatabase = createAsyncThunk(
 export const getSIFromDatabase = createAsyncThunk(
   "si/getSIFromDatabase",
   async () => {
-    return await getSI();
+    const si = await getSI();
+
+    return si.map(item => ({
+      name: item.product_name,
+      quantity: item.quantity
+    }));
   }
 );
 
@@ -30,6 +35,8 @@ export const SISlice = createSlice({
 
   reducers: {
     recieveItem: (state, action) => {
+      console.log("RECIEVE ITEM:", action.payload);
+
       const { name, image, quantity } = action.payload;
       const existingItem = state.items.find(item => item.name === name);
       if (existingItem) {
@@ -44,6 +51,8 @@ export const SISlice = createSlice({
     },
 
     dropItem: (state, action) => {
+      console.log("DROP ITEM:", action.payload);
+
       const { name, quantity } = action.payload;
       const itemToDrop = state.items.find(item => item.name === name);
       if (itemToDrop) {
@@ -56,6 +65,8 @@ export const SISlice = createSlice({
     builder.addCase(
       getSIFromDatabase.fulfilled,
       (state, action) => {
+        console.log("GET SI RESPONSE:", action.payload);
+
         state.siLoaded = true;
         state.items = action.payload;
       }

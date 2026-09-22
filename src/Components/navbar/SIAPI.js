@@ -1,5 +1,5 @@
 
-export const saveSI = async (stranger_inventory) => {
+export const saveSI = async (si) => {
   const response = await fetch(
     'http://localhost:5000/user/si',
     {
@@ -9,7 +9,7 @@ export const saveSI = async (stranger_inventory) => {
       },
       credentials: "include",
       body: JSON.stringify({
-        stranger_inventory
+        si
       })
     }
   );

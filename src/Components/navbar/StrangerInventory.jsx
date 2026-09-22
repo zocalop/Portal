@@ -9,19 +9,31 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
   const siLoaded = useSelector(state => state.stranger_inventory.siLoaded);
 
   useEffect(() => {
+    console.log("SI COMPONENT MOUNTED");
+
     dispatch(getSIFromDatabase());
+
+    return () => {
+      console.log("SI COMPONENT UNMOUNTED");
+    };
   }, [dispatch]);
 
   useEffect(() => {
-    if (!siLoaded) {
-      return;
-    }
-    dispatch(
-      saveSIToDatabase({
-        si: stranger_inventory
-      })
-    );
-  }, [stranger_inventory, siLoaded, dispatch]);
+    console.log("SI STATE CHANGED:", stranger_inventory);
+    console.log("SI LOADED:", siLoaded);
+  }, [stranger_inventory, siLoaded]);
+
+//  useEffect(() => {
+//    if (!siLoaded) {
+//      return;
+//    }
+
+//    dispatch(
+//      saveSIToDatabase({
+//        si: stranger_inventory
+//      })
+//    );
+//  }, [stranger_inventory, siLoaded, dispatch]);
 
   const handleDecrement = (item) => {
   };
