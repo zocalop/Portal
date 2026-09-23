@@ -1,20 +1,51 @@
 
 import { useSelector, useDispatch } from 'react-redux';
-import { removeItem, updateQuantity } from '../Cart/CartSlice.jsx';
+import { useEffect } from 'react';
+import { recieveItem, dropItem, getSIFromDatabase, saveSIToDatabase } from './SISlice.jsx';
+import { itemArray } from '../Trader/ItemArray.js';
 
 const StrangerInventory = ({ onCloseStrangerInventory }) => {
-  const cart = useSelector(state => state.cart.items); 
+  const stranger_inventory = useSelector(state => state.stranger_inventory.items); 
   const dispatch = useDispatch();
-  
-  const calculateTotalAmount = (cart) => {
-    let total = 0;
-    cart.forEach((item) => {
-      const quantity = item.quantity;
-      const cost = item.cost;
-      total += quantity * cost;
-    });
-    return total;
-  };
+  const siLoaded = useSelector(state => state.stranger_inventory.siLoaded);
+
+  const displayInventory = stranger_inventory.map(item => {
+    const product = itemArray
+      .flatMap(category => category.wares)
+      .find(product => product.name === item.name);
+
+    return {
+      ...item,
+      image: product?.image
+    };
+  });
+
+  useEffect(() => {
+    console.log("SI COMPONENT MOUNTED");
+
+    dispatch(getSIFromDatabase());
+
+    return () => {
+      console.log("SI COMPONENT UNMOUNTED");
+    };
+  }, [dispatch]);
+
+  useEffect(() => {
+    console.log("SI STATE CHANGED:", stranger_inventory);
+    console.log("SI LOADED:", siLoaded);
+  }, [stranger_inventory, siLoaded]);
+
+  useEffect(() => {
+    if (!siLoaded) {
+      return;
+    }
+
+    dispatch(
+      saveSIToDatabase({
+        si: stranger_inventory
+      })
+    );
+  }, [stranger_inventory, siLoaded, dispatch]);
 
   const handleDecrement = (item) => {
   };
@@ -36,29 +67,30 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
   };
 
   return (
-    <div className="cart-container">
-      <h2>Total Cart Amount:  {calculateTotalAmount(cart)}</h2>
-      <div>
-        {cart.map(item => (
-          <div className="cart-item" key={item.name}>
-            <img className="cart-item-image" src={item.image} alt={item.name} />
-            <div className="cart-item-details">
-              <div className="cart-item-name">{item.name}</div>
-              <div className="cart-item-cost">{item.cost}</div>
-              <div className="cart-item-quantity">
-                <button className="cart-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
-                <span className="cart-item-quantity-value">{item.quantity}</span>
-                <button className="cart-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
+    <div className="si-container">
+      <div className="si-items">
+        {displayInventory.map(item => (
+          <div className="si-item" key={item.name}>
+            <img className="si-item-image" src={item.image} alt={item.name} />
+            <div className="si-item-details">
+              <div className="si-item-name">{item.name}</div>
+              <div className="si-item-quantity">
+                <button className="si-item-button-dec" onClick={() => handleDecrement(item)}>-</button>
+                <span className="si-item-quantity-value"> {item.quantity} </span>
+                <button className="si-item-button-inc" onClick={() => handleIncrement(item)}>+</button>
               </div>
-              <div className="cart-item-total">Total: ${calculateTotalCost(item)}</div>
-              <div className="cart-item-delete" onClick={() => handleRemove(item)}>Delete</div>
+              <button
+                className="si-item-delete" 
+                onClick={() => handleRemove(item)}
+              >
+                Drop Item
+              </button>
             </div>
           </div>
         ))}
       </div>
-      <div style={{ marginTop: '20px', color: 'black', }} className="total-cart-amount"></div>
-      <div className="">
-        <button onClick={onCloseStrangerInventory}>Close Inventory</button>
+      <div>
+        <button className="close-si-btn" onClick={onCloseStrangerInventory}>Close Inventory</button>
       </div>
     </div>
   );

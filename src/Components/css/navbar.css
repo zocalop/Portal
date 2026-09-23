@@ -83,9 +83,9 @@
   transition: transform 0.5s ease;
   overflow-y: auto;
   width: 50%;
-  border: 5px solid black;
+  border: 10px solid #3B2416;
   border-radius: 10px;
-  z-index: 1000;
+  z-index: 9000;
   box-sizing: border-box;
 
   pointer-events: none;
