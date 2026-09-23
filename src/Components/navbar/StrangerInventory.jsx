@@ -2,11 +2,23 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { recieveItem, dropItem, getSIFromDatabase, saveSIToDatabase } from './SISlice.jsx';
+import { itemArray } from '../Trader/ItemArray.js';
 
 const StrangerInventory = ({ onCloseStrangerInventory }) => {
   const stranger_inventory = useSelector(state => state.stranger_inventory.items); 
   const dispatch = useDispatch();
   const siLoaded = useSelector(state => state.stranger_inventory.siLoaded);
+
+  const displayInventory = stranger_inventory.map(item => {
+    const product = itemArray
+      .flatMap(category => category.wares)
+      .find(product => product.name === item.name);
+
+    return {
+      ...item,
+      image: product?.image
+    };
+  });
 
   useEffect(() => {
     console.log("SI COMPONENT MOUNTED");
@@ -57,7 +69,7 @@ const StrangerInventory = ({ onCloseStrangerInventory }) => {
   return (
     <div className="si-container">
       <div className="si-items">
-        {stranger_inventory.map(item => (
+        {displayInventory.map(item => (
           <div className="si-item" key={item.name}>
             <img className="si-item-image" src={item.image} alt={item.name} />
             <div className="si-item-details">
